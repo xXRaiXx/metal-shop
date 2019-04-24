@@ -74,8 +74,8 @@
         	  <div class="col-sm-3">
         	    <div class="form-group">
         	      <label for="state">State:</label>
-        	      <select name="state" class="form-control" required>
-        	           <option disabled selected>State</option>
+        	      <select name="state" class="form-control" aria-required="true" required>
+        	           <option disabled selected value="">State</option>
         	           <option value="AL">AL</option>
         	            <option value="AK">AK</option>
         	            <option value="AR">AR</option>  
@@ -151,8 +151,8 @@
         	  <div class="col-sm-12">
         	    <div class="form-group">
         	      <label for="item">Item:</label>
-        	      <select name="item" class="form-control" required>
-        	        <option disabled selected>Choose a CD</option>
+        	      <select name="item" class="form-control" aria-required="true" required>
+        	        <option disabled selected value="">Choose a CD</option>
         	        <option value="cd-variation-1">Burzum--Self-Titled</option>
         	        <option value="cd-variation-2">Rotting Christ--The Heretics</option>
         	        <option value="cd-variation-3">Dark Funeral --Diabolis Interium </option>
@@ -168,6 +168,9 @@
         	  <div class="col-sm-6">
         	    <button class="btn btn-success btn-block" type="submit">Submit Order</button>
         	  </div>
+              <div class="col-sm-12 mt-3">
+                <button class="btn btn-warning btn-block" id="formReset">Reset Form</button>
+              </div>
         	</div>
         </form>
       </div> <!-- ./col-sm-6 -->
@@ -181,20 +184,42 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
      <script type="text/javascript">
-			// Form Validation & Submission
-			// Vanilla Javascript
-			document.getElementById("payment-form").addEventListener("submit", formSubmission);
+			// *****************************
+            // Form Validation & Submission
+			// *****************************
 
-			function formSubmission() {
-				alert('Javascript - Form Subimitted!');
-				console.log('Javascript - Form Has Been Submitted Successfully!');
-			}
+            // Vanilla Javascript
+			// document.getElementById("payment-form").addEventListener("submit", formSubmission);
+
+			// function formSubmission() {
+			// 	alert('Javascript - Form Subimitted!');
+			// 	console.log('Javascript - Form Has Been Submitted Successfully!');
+			// }
 				
 			// jQuery
-			// $("#payment-form").submit(function() {
-			// 	alert('jQuery - Form Submitted');
-			// 	console.log('jQuery - Form Has Been Submitted Successfully!');
-			// });
+			$("#payment-form").submit(function() {
+				alert('jQuery - Form Submitted');
+				console.log('jQuery - Form Has Been Submitted Successfully!');
+			});
+
+            // ***************************
+            // Form Reset Functionality
+            // ***************************
+
+            // Vanilla Javascript
+            // document.getElementById("formReset").addEventListener("click", formReset);
+            // function formReset() {
+            //     document.getElementById("payment-form").reset();
+            // }
+
+            // jQuery Javascript
+            // Define that we are using jQuery - Listen for the click event on the selected element
+            $("#formReset").click(function() {
+                // Select the form and trigger a reset
+                $("#payment-form").trigger("reset");
+            });
+
+
      </script>
 </body>
     
